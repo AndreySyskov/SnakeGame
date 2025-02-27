@@ -166,12 +166,9 @@ class Model {
     snake.add_point(h/2, w/2-4, GameFieldElement::Snake, Direction::RIGHT);
 
     // Создаем еду
-    //int start_food_x_point = rand_x_not_in_snake();
-    //int start_food_y_point = rand_y_not_in_snake();
+
     food.add_point(rand_x_not_in_snake(), rand_y_not_in_snake(), GameFieldElement::Food, Direction::NO); // Версия с одной едой на поле
-    //food.add_point(rand_x_not_in_snake(), rand_y_not_in_snake(), GameFieldElement::Food, Direction::NO);
-    //food.add_point(rand_x_not_in_snake(), rand_y_not_in_snake(), GameFieldElement::Food, Direction::NO);
-    //food.add_point(rand_x_not_in_snake(), rand_y_not_in_snake(), GameFieldElement::Food, Direction::NO);
+
    }
 
 
@@ -309,14 +306,12 @@ private:
    
 };
 
-// Предварительное объявление класса View
+// Предварительное объявление класса View, без этого не компилилось
 class View;
 
 class View {
     public:
-    //int count=1;
-    //View(Controller &controller) : controller_(controller) {}
- 
+
  
  /*
     void print_w() {
@@ -394,8 +389,7 @@ class View {
 
 
  private:
- 
-    //Controller &controller_;
+
     
  };
 
@@ -427,7 +421,7 @@ class Controller {
         return model_.update();
     }
 
-    void run(){ // переписать под enum
+    void run(){ // переписать под enum???
         char input = 'd'; // костыль запускает игру, змея движется ВПРАВО (RIGTH)
         while(true){
             //char input=getch();
@@ -469,19 +463,9 @@ int main() {
    Model model(30, 15);
    View view;
    Controller controller(model, view);
-  // View view(controller);
 
-
-
- 
 controller.run();
 
 
-
-
-//system("clear"); 
-
-
-  
    return 0;
 }
